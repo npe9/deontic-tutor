@@ -1,5 +1,7 @@
 # Deontic Tutor
 
+![A horned scholar teaching obligation, permission, and prohibition in an arcane library](assets/deontic-tutor.png)
+
 A self-contained, misconception-aware tutor for introductory deontic logic. It teaches obligations, permissions, prohibitions, scope, conflicts, and contrary-to-duty reasoning through contrasting concrete cases.
 
 ## Run locally
