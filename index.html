@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A misconception-aware tutor for learning deontic logic through contrasting cases." />
+  <title>Deontic — learn the logic of ought</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Deontic home"><span class="brand-mark">D</span><span>deontic</span></a>
+    <div class="progress-wrap" aria-label="Session progress">
+      <span id="progress-label">Case 1 of 6</span>
+      <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+    </div>
+    <button class="icon-button" id="restart-button" type="button" aria-label="Restart session" title="Restart session">↻</button>
+  </header>
+
+  <main>
+    <section id="intro-screen" class="screen intro-screen">
+      <div class="eyebrow">Interactive logic studio</div>
+      <h1>What follows from<br><em>what ought to be?</em></h1>
+      <p class="lede">Learn deontic logic by judging concrete cases. The tutor compares your choices, spots misconceptions, and gives you the next case that matters.</p>
+      <div class="mode-grid">
+        <button class="mode-card selected" data-mode="guided" type="button">
+          <span class="mode-icon">◎</span>
+          <span><strong>Guided practice</strong><small>Start with obligations, permissions, and prohibitions.</small></span>
+          <span class="check">✓</span>
+        </button>
+        <button class="mode-card" data-mode="challenge" type="button">
+          <span class="mode-icon">⌁</span>
+          <span><strong>Challenge me</strong><small>Mix in conflicts, contrary-to-duty rules, and scope.</small></span>
+          <span class="check">✓</span>
+        </button>
+      </div>
+      <button id="start-button" class="primary-button" type="button">Begin with a case <span>→</span></button>
+      <p class="fine-print">No symbols required. About 5 minutes.</p>
+    </section>
+
+    <section id="lesson-screen" class="screen lesson-screen hidden" aria-live="polite">
+      <aside class="concept-panel">
+        <div class="eyebrow">Your working theory</div>
+        <div class="concept-list">
+          <div class="concept active"><span>O</span><div><strong>Obligatory</strong><small>It ought to be true</small></div></div>
+          <div class="concept"><span>P</span><div><strong>Permitted</strong><small>It may be true</small></div></div>
+          <div class="concept"><span>F</span><div><strong>Forbidden</strong><small>It ought not be true</small></div></div>
+        </div>
+        <div class="theory-card">
+          <span class="signal-dot"></span>
+          <small id="theory-kicker">Building a model</small>
+          <p id="theory-text">Your answers will reveal how you think obligations and permissions relate.</p>
+        </div>
+      </aside>
+
+      <div class="case-column">
+        <div class="case-meta"><span id="case-topic">OBLIGATION · WARM UP</span><button id="skip-button" class="text-button" type="button">Skip case</button></div>
+        <article class="case-card">
+          <div class="world" id="world-art" aria-hidden="true"></div>
+          <div class="case-copy">
+            <div class="rule-label">The rule</div>
+            <h2 id="rule-text"></h2>
+            <div class="divider"></div>
+            <div class="question-label">Now suppose</div>
+            <p id="scenario-text"></p>
+            <h3 id="question-text"></h3>
+          </div>
+        </article>
+        <div id="answer-options" class="answer-options"></div>
+        <div id="feedback" class="feedback hidden">
+          <div id="feedback-icon" class="feedback-icon">✓</div>
+          <div><strong id="feedback-title"></strong><p id="feedback-text"></p><button id="next-button" class="next-button" type="button">Next contrasting case <span>→</span></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results-screen" class="screen results-screen hidden">
+      <div class="result-orbit" aria-hidden="true"><span>O</span><span>P</span><span>F</span><b>✓</b></div>
+      <div class="eyebrow">Session complete</div>
+      <h1>You sharpened your<br><em>normative instincts.</em></h1>
+      <p id="result-summary" class="lede"></p>
+      <div class="score-row">
+        <div><strong id="score-value">0/6</strong><span>cases correct</span></div>
+        <div><strong id="concept-value">0</strong><span>concepts secured</span></div>
+        <div><strong id="streak-value">0</strong><span>best streak</span></div>
+      </div>
+      <div id="diagnosis-card" class="diagnosis-card"></div>
+      <button id="again-button" class="primary-button" type="button">Practice another set <span>↻</span></button>
+    </section>
+  </main>
+
+  <footer><span>DEONTIC / v0.1</span><span>Learn through contrasting cases, not memorized rules.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
